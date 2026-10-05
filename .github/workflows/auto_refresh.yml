@@ -1,0 +1,36 @@
+name: Auto Refresh Sales Report
+
+on:
+  push:
+    paths:
+      - '*.csv'  # 💡 只要你上傳、更新了 CSV 檔案，機器人就會自動啟動！
+  schedule:
+    - cron: '0 0 * * *' # 💡 或者設定每天凌晨 12 點固定自動執行一次
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 檢查程式碼
+        uses: actions/checkout@v3
+
+      - name: 設定 Python 環境
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: 安裝中文字體與 Python 套件
+        run: |
+          sudo apt-get install -y fonts-wqy-microhei
+          pip install -r requirements.txt
+
+      - name: 執行 Python 串接 Aiven MySQL 並重新畫圖產出網頁
+        run: python update_report.py
+
+      - name: 自動將最新圖表與 HTML 推送回 GitHub Pages
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.name "actions@github.com"
+          git add index.html *.png
+          git commit -m "🤖 自動更新：銷售數據與圖表已同步最新快照" || exit 0
+          git push
