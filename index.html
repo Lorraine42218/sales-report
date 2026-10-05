@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>2026年9月模擬銷售數據分析報告</title>
+    <style>
+        body { font-family: 'Segoe UI', Microsoft JhengHei, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; }
+        .container { max-width: 1100px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        h1 { text-align: center; color: #2c3e50; }
+        .dashboard { display: flex; justify-content: space-between; gap: 15px; margin: 30px 0; flex-wrap: wrap; }
+        .card { flex: 1; min-width: 220px; background: #fff; border-left: 5px solid #3498db; padding: 20px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); text-align: center; }
+        .card.revenue { border-left-color: #2ecc71; }
+        .card.returns { border-left-color: #e74c3c; }
+        .card p { font-size: 26px; font-weight: bold; margin: 10px 0 0; color: #2c3e50; }
+        .chart-container { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 30px; text-align: center; }
+        img { max-width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 2026年9月 銷售數據分析報告 (Aiven 雲端完美繁中版)</h1>
+        <div class="dashboard">
+            <div class="card"><h3>總數據筆數</h3><p>300 筆</p></div>
+            <div class="card"><h3>總售出數量</h3><p>4524 件</p></div>
+            <div class="card returns"><h3>總退貨數量</h3><p>63 件</p></div>
+            <div class="card revenue"><h3>總淨銷售額 (NTD)</h3><p>$3,970,100 元</p></div>
+        </div>
+        <div class="chart-container"><h3>📈 每日淨銷售額折線圖</h3><img src="daily_sales.png"></div>
+        <div class="chart-container"><h3>📊 各商品淨銷售額長條圖</h3><img src="product_sales.png"></div>
+        <div class="chart-container"><h3>🍕 各分類淨銷售額占比圓餅圖</h3><img src="category_sales.png"></div>
+    </div>
+</body>
+</html>
