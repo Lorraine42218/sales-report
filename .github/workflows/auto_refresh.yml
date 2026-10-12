@@ -30,7 +30,7 @@ jobs:
       - name: 自動將最新圖表與 HTML 推送回 GitHub Pages
         run: |
           git config --global user.name "GitHub Action"
-          git config --global user.name "actions@github.com"
-          git add index.html *.png
+          git config --global user.email "actions@github.com"
+          git add .
           git commit -m "🤖 自動更新：銷售數據與圖表已同步最新快照" || exit 0
           git push
